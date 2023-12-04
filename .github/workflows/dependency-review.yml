@@ -17,10 +17,12 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
-      - name: Use variables
-        run: |
-          echo "base ref: $GITHUB_BASE_REF"
-          echo "head ref: $GITHUB_HEAD_REF"
+      # Use github context vars https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      - name: Refs
+        run: |        
+          echo "ref: ${{ github.ref }}"
+          echo "base ref: ${{ github.base.ref }}"
+          echo "head ref: ${{ github.head.ref }}"
       - run: nuget restore .\Fsharp-WebAPI.sln
       - name: Component detection 
         uses: advanced-security/component-detection-dependency-submission-action@v0.0.2
