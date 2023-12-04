@@ -31,6 +31,7 @@ jobs:
         uses: actions/dependency-review-action@v3
         with: 
           retry-on-snapshot-warnings: true
+          retry-on-snapshot-warnings-timeout: 240 #default 120 was not long enough for nuget restore to complete (alternative would be to run this in same PR workflow and exclude from generic push)
           comment-summary-in-pr: true
           # fail on any copy left license types
           deny-licenses: GPL-2.0, GPL-3.0, LGPL-2.0, LGPL-3.0, AGPL-1.0, AGPL-1.0-only, AGPL-1.0-or-later, AGPL-3.0, AGPL-3.0-only, AGPL-3.0-or-later, RPL-1.1, RPL-1.5, RPSL-1.0, OCLC-2.0, NGPL, ODbL-1.0, MS-RL, OSL-1.0, OSL-1.1, OSL-2.0, OSL-2.1, OSL-3.0, MPL-2.0, MPL-1.0, MPL-1.1, MPL-2.0-no-copyleft-exception, EPL-1.0, EPL-2.0
