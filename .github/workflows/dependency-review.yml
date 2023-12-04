@@ -23,9 +23,10 @@ jobs:
           echo "ref: ${{ github.ref }}"
           echo "base ref: ${{ github.base_ref }}"
           echo "head ref: ${{ github.head_ref }}"
-      - run: nuget restore .\Fsharp-WebAPI.sln
-      - name: Component detection 
-        uses: advanced-security/component-detection-dependency-submission-action@v0.0.2
+      # This is executed in component-detection.yml on every push (also on PR!)
+      #- run: nuget restore .\Fsharp-WebAPI.sln
+      #- name: Component detection 
+      #  uses: advanced-security/component-detection-dependency-submission-action@v0.0.2
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v3
         with: 
