@@ -21,8 +21,8 @@ jobs:
       - name: Refs
         run: |        
           echo "ref: ${{ github.ref }}"
-          echo "base ref: ${{ github.base.ref }}"
-          echo "head ref: ${{ github.head.ref }}"
+          echo "base ref: ${{ github.base_ref }}"
+          echo "head ref: ${{ github.head_ref }}"
       - run: nuget restore .\Fsharp-WebAPI.sln
       - name: Component detection 
         uses: advanced-security/component-detection-dependency-submission-action@v0.0.2
